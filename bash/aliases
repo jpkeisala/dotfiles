@@ -1,0 +1,46 @@
+echo "^a: go to beginning of line"
+echo "^e: go to end of line"
+echo "^k: delete everything right"
+echo "^w: delete prev word"
+echo "ESC-b: go back one word"
+echo "ESC-f: go forward one word"
+
+# Shell
+alias c='clear'
+alias la='ls -alh'
+alias cdd='cd -'  # back to last directory
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias ......='cd ../../../../..'
+alias tu='top -o cpu' #cpu
+alias tm='top -o vsize' #memory
+
+
+
+alias ll="ls -lhFG"
+alias ls="ls -FG"
+alias dir="ll"
+alias top='top -ocpu'
+
+function saveurl(){
+	curl -o $1 $2
+}
+
+function startHTTP(){
+	echo "python -m SimpleHTTPServer $1"
+	python -m SimpleHTTPServer $1
+	#open "http://localhost:${port}/"
+	 
+}
+
+# myIP address
+function myip() {
+    ifconfig lo0 | grep 'inet ' | sed -e 's/:/ /' | awk '{print "lo0       : " $2}'
+	ifconfig en0 | grep 'inet ' | sed -e 's/:/ /' | awk '{print "en0 (IPv4): " $2 " " $3 " " $4 " " $5 " " $6}'
+	ifconfig en0 | grep 'inet6 ' | sed -e 's/ / /' | awk '{print "en0 (IPv6): " $2 " " $3 " " $4 " " $5 " " $6}'
+	ifconfig en1 | grep 'inet ' | sed -e 's/:/ /' | awk '{print "en1 (IPv4): " $2 " " $3 " " $4 " " $5 " " $6}'
+	ifconfig en1 | grep 'inet6 ' | sed -e 's/ / /' | awk '{print "en1 (IPv6): " $2 " " $3 " " $4 " " $5 " " $6}'
+}
+
